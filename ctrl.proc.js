@@ -5,7 +5,7 @@ var jsonPath = path.join(__dirname, 'data.json');
 
 function insertChirp(chirp) {
     return new Promise(function(resolve, reject) {
-        console.log('in my promise');
+        console.log('insert');
         fs.readFile(jsonPath, 'utf-8', function(err, file) {
             if (err) {
                 reject('Error reading data.json');
@@ -25,7 +25,7 @@ function insertChirp(chirp) {
     });
 }
 
-function getChirps() {
+function getChirp() {
     return new Promise(function(resolve, reject) {
         fs.readFile(jsonPath, 'utf-8', function(err, file) {
             if (err) {
@@ -130,7 +130,7 @@ function deleteChirp(id) {
 
 module.exports = {
     create: insertChirp,
-    all: getChirps,
+    all: getChirp,
     read: getChirp,
     destroy: deleteChirp,
     update: updateChirp
