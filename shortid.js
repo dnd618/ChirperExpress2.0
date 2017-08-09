@@ -1,14 +1,17 @@
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var fs = require('fs');
-var path = require('path');
-var ids = require('shortid');
 var shortid = require('shortid');
+var express = require('express');
 
 
-var shortId = shortid.generate();
-  result.shortId = shortId;
+function newId (req, res, next){
+    if (req.body.id){
+        return;
+    }
+    req.body.id = shortid.generate();
+
+    next();
+};
+
+module.exports = newId;
 
 
   

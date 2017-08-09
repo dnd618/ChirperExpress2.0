@@ -23,7 +23,7 @@ router.route('/')
 
     })
 
-    .post(newId, timeStamp, function(req, res){
+    .post(newId, timeStamp.generateTimeStamp, function(req, res){
         chirpsAll.create(req.body)
             .then(function(success){
                 res.send(success);
