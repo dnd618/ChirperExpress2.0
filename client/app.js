@@ -12,10 +12,10 @@ angular.module('myApp', ['ngRoute', 'controllers'])
         templateUrl: '../one.html',
         controller: 'singleController'
     })
-    .when('/user/', {
-        templateUrl: '../user.html',
-        controller: 'singleUserController'
-    })
+    // .when('/user/', {
+    //     templateUrl: '../user.html',
+    //     controller: 'singleUserController'
+    // })
     .when('/chirps', {
         templateUrl: '../list.html',
         controller: 'listController'
@@ -94,22 +94,22 @@ angular.module('controllers', [])
     });
 }]);
 
-app.controller("SingleUserController",['$scope', '$routeParams', '$http', function($scope, $routeParams, $http){
-      var user = $routeParams.user;
-     console.log(user)
-    $http.get('$rootScope.api' + '/' + user)
-        .then(function(response){
-            console.log(user)
-        console.log(response)
-        $scope.users=response.data
-    });
+// app.controller("SingleUserController",['$scope', '$routeParams', '$http', function($scope, $routeParams, $http){
+//       var user = $routeParams.user;
+//      console.log(user)
+//     $http.get('$rootScope.api' + '/' + user)
+//         .then(function(response){
+//             console.log(user)
+//         console.log(response)
+//         $scope.users=response.data
+//     });
 
-    $scope.removeUser=function(){
-        console.log('delete clicked')
-    $http.delete('$rootScope.api' + '/chirps/:id')
-    .then(function(response){
-        console.log(response.data)
-    })
-    window.location.href= "/#/list"
-    }
+//     $scope.removeUser=function(){
+//         console.log('delete clicked')
+//     $http.delete('$rootScope.api' + '/chirps/:id')
+//     .then(function(response){
+//         console.log(response.data)
+//     })
+//     window.location.href= "/#/list"
+//     }
 }]);
