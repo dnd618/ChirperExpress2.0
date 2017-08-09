@@ -1,17 +1,9 @@
-var express = require('express'),
-    router = express.Router();
+var express = require('express');
+var path = require('path');
+var chirps = require('./chirps.ctrl');
 
-//Chirps page
-router.get(function(req, res){
-        fs.readFile(jsonPath, function(err, file) {
-            if (err) {
-                res.writeHead(500);
-                res.send('Can not read file');
-            }
+var router = express.Router();
 
-            res.write(file);
-            res.send();
-        });
-})
+router.use('/chirps', chirps);
 
-module.exports = router
+module.exports = router;

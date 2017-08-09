@@ -1,9 +1,12 @@
 var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
-var fs = require('fs');
-var path = require('path');
 var moment = require('moment');
 
-var moment = moment.generate();
-  result.moment = moment;
+function timeStamp (req, res, next){
+    if (req.body.time){
+        return req.body;
+    }
+    req.body.time = moment().format();
+    next();
+};
+
+module.exports = timeStamp;
